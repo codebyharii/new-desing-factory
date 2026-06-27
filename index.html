@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Design Factory</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Announcement Bars -->
+    <div class="top-bar-orange">
+        <div class="marquee-container">
+            <span>MUMBAI EXHIBITION - 11TH & 12TH AUG</span>
+        </div>
+        <div class="countdown-timer" id="countdown">
+            <div class="time-block">
+                <span id="days">44</span>
+                <span class="label">DAY</span>
+            </div>
+            <div class="colon">:</div>
+            <div class="time-block">
+                <span id="hours">13</span>
+                <span class="label">HRS</span>
+            </div>
+            <div class="colon">:</div>
+            <div class="time-block">
+                <span id="mins">41</span>
+                <span class="label">MIN</span>
+            </div>
+            <div class="colon">:</div>
+            <div class="time-block">
+                <span id="secs">49</span>
+                <span class="label">SEC</span>
+            </div>
+        </div>
+    </div>
+    <div class="top-bar-yellow">
+        <span><i class="fa-solid fa-chevron-left"></i> &nbsp;&nbsp;&nbsp; WELCOME TO YOUR HAPPY PLACE &nbsp;&nbsp;&nbsp; <i class="fa-solid fa-chevron-right"></i></span>
+    </div>
+
+    <!-- Glassmorphic Header / Navbar -->
+    <header class="header-glass">
+        <div class="logo-container">
+            <h1 class="text-logo-jm"><span class="jm-box">JM</span> JACKET MASTERS</h1>
+        </div>
+        <nav class="navbar-pill">
+            <div class="nav-links-pill">
+                <a href="#" class="active-pill">PUFFER JACKET</a>
+                <a href="#">ALL PRODUCTS</a>
+                <a href="#">ABOUT US</a>
+                <a href="#" class="contact-link">CONTACT</a>
+            </div>
+        </nav>
+        <div class="nav-icons-glass">
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="#"><i class="fa-regular fa-heart"></i></a>
+        </div>
+    </header>
+
+    <!-- Awwwards Hero Section -->
+    <section class="awwwards-hero" id="awwwardsHero">
+        <div class="hero-bg-color" id="heroBgColor"></div>
+        
+        <!-- Left Column: Typography -->
+        <div class="hero-left">
+            <div class="slider-nav">
+                <button class="nav-btn prev-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="nav-btn next-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="text-mask">
+                <h2 class="hero-title" id="heroTitle">Gift Tags<br>Without trying</h2>
+            </div>
+            <div class="text-mask">
+                <p class="hero-desc" id="heroDesc">It's not just about styling gifts. It's about stepping outside and instantly feeling confident, comfortable, and completely yourself. Designed to elevate even the simplest gifts, this tag wraps you in lightweight warmth.</p>
+            </div>
+            
+            <button class="hero-cta">
+                <span class="cta-text">Get the look <i class="fa-solid fa-chevron-right"></i></span>
+                <span class="cta-hover-bg"></span>
+            </button>
+            
+            <div class="hero-social">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-behance"></i></a>
+            </div>
+        </div>
+
+        <!-- Center Column: Active Image -->
+        <div class="hero-center">
+            <div class="active-image-container" id="activeImgContainer">
+                <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80" alt="Gift Tags" class="active-product-img" id="activeImg">
+            </div>
+            <div class="center-bottom-text text-mask">
+                <p id="centerQuote">Confidence,<br>wrapped in warmth</p>
+            </div>
+        </div>
+
+        <!-- Right Column: Pricing & Preview -->
+        <div class="hero-right">
+            <div class="pricing-container">
+                <div class="text-mask"><h3 class="price-current" id="priceCurrent">RS. 350</h3></div>
+                <div class="text-mask"><h4 class="price-old" id="priceOld">RS. 499</h4></div>
+                
+                <p class="size-label">Choose your variant:</p>
+                <div class="size-options">
+                    <button class="size-btn active">S</button>
+                    <button class="size-btn">M</button>
+                    <button class="size-btn">L</button>
+                </div>
+            </div>
+            
+            <!-- Bottom Right Preview -->
+            <div class="preview-container" id="previewContainer">
+                <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=400&q=80" alt="Envelopes" class="preview-img" id="previewImg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Board Carousel Section -->
+    <section class="vision-carousel-section">
+        <div class="carousel-header">
+            <h2 class="carousel-logo">TDF <span>Products</span></h2>
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search products...">
+            </div>
+            <div class="menu-btn">Menu <i class="fa-solid fa-grip"></i></div>
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- Card 1 -->
+                <div class="carousel-card bg-red" id="card-1" data-id="1" data-title="Bag Tags" data-subtitle="Category: Accessories" data-desc="Our bag tags are stylish and durable, making your luggage easily identifiable while adding a touch of personality. Perfect for travel or school bags." data-img="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop" data-bg-color="linear-gradient(135deg, #d33c54, #b21f32)">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=400&auto=format&fit=crop" alt="Bag Tags">
+                    </div>
+                    <div class="card-content">
+                        <h3>Bag Tags</h3>
+                        <p>Category: <span>Accessories</span></p>
+                        <button class="read-more" data-target="1">READ MORE <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="carousel-card bg-blue" id="card-2" data-id="2" data-title="Labels" data-subtitle="Category: Waterproof" data-desc="Keep your items organized with our premium waterproof labels. Designed to withstand washing and daily wear, they are essential for school supplies." data-img="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=600&auto=format&fit=crop" data-bg-color="linear-gradient(135deg, #30588c, #1a365d)">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=400&auto=format&fit=crop" alt="Waterproof Labels">
+                    </div>
+                    <div class="card-content">
+                        <h3>Labels</h3>
+                        <p>Category: <span>Waterproof</span></p>
+                        <button class="read-more" data-target="2">READ MORE <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="carousel-card bg-green" id="card-3" data-id="3" data-title="3D Stickers" data-subtitle="Category: Embossed" data-desc="Add a fun, tactile element to your gifts and books. Our 3D embossed stickers stand out with vibrant colors and premium raised textures." data-img="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?q=80&w=600&auto=format&fit=crop" data-bg-color="linear-gradient(135deg, #78a158, #4e7332)">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?q=80&w=400&auto=format&fit=crop" alt="3D Stickers">
+                    </div>
+                    <div class="card-content">
+                        <h3>3D Stickers</h3>
+                        <p>Category: <span>Embossed</span></p>
+                        <button class="read-more" data-target="3">READ MORE <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="carousel-card bg-dark" id="card-4" data-id="4" data-title="Table Mats" data-subtitle="Category: Dining" data-desc="Elevate your dining experience. These elegant table mats are easy to clean, highly durable, and add a sophisticated touch to any meal setting." data-img="https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?q=80&w=600&auto=format&fit=crop" data-bg-color="linear-gradient(135deg, #2c3e50, #000000)">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?q=80&w=400&auto=format&fit=crop" alt="Table Mats">
+                    </div>
+                    <div class="card-content">
+                        <h3>Table Mats</h3>
+                        <p>Category: <span>Dining</span></p>
+                        <button class="read-more" data-target="4">READ MORE <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="carousel-card bg-purple" id="card-5" data-id="5" data-title="Iron-on Labels" data-subtitle="Category: Clothing" data-desc="Never lose a uniform again. Our iron-on labels fuse permanently with fabric, ensuring names stay visible wash after wash." data-img="https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=600&auto=format&fit=crop" data-bg-color="linear-gradient(135deg, #8e44ad, #5e3370)">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=400&auto=format&fit=crop" alt="Iron-on Labels">
+                    </div>
+                    <div class="card-content">
+                        <h3>Iron-on Labels</h3>
+                        <p>Category: <span>Clothing</span></p>
+                        <button class="read-more" data-target="5">READ MORE <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="carousel-card bg-orange" id="card-6" data-id="6" data-title="Envelopes" data-subtitle="Category: Stationery" data-desc="Seal it with love. Our premium envelopes are crafted from high-quality paper, providing a secure and elegant housing for your messages." data-img="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=600&auto=format&fit=crop" data-bg-color="linear-gradient(135deg, #e67e22, #a85812)">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=400&auto=format&fit=crop" alt="Envelopes">
+                    </div>
+                    <div class="card-content">
+                        <h3>Envelopes</h3>
+                        <p>Category: <span>Stationery</span></p>
+                        <button class="read-more" data-target="6">READ MORE <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 7 -->
+                <div class="carousel-card bg-teal" id="card-7" data-id="7" data-title="Sipper Bottles" data-subtitle="Category: Hydration" data-desc="Stay hydrated on the go. These durable sipper bottles feature leak-proof designs and stylish prints that kids and adults will love." data-img="https://images.unsplash.com/photo-1627885061803-b0e6df2980fa?q=80&w=600&auto=format&fit=crop" data-bg-color="linear-gradient(135deg, #1abc9c, #117a65)">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1627885061803-b0e6df2980fa?q=80&w=400&auto=format&fit=crop" alt="Sipper Bottles">
+                    </div>
+                    <div class="card-content">
+                        <h3>Sipper Bottles</h3>
+                        <p>Category: <span>Hydration</span></p>
+                        <button class="read-more" data-target="7">READ MORE <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Card 8 -->
+                <div class="carousel-card bg-yellow-gradient" id="card-8" data-id="8" data-title="3D Gift Tags" data-subtitle="Category: Gifting" data-desc="Make your gifts stand out before they are even opened. Our 3D gift tags feature layered designs for a truly premium unboxing experience." data-img="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=600&auto=format&fit=crop" data-bg-color="linear-gradient(135deg, #f1c40f, #f39c12)">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=400&auto=format&fit=crop" alt="3D Gift Tags">
+                    </div>
+                    <div class="card-content">
+                        <h3>3D Gift Tags</h3>
+                        <p>Category: <span>Gifting</span></p>
+                        <button class="read-more" data-target="8">READ MORE <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-footer">
+            <div class="social-links-text">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div>
+            <div class="carousel-nav-btn">
+                <button id="carPrev"><i class="fa-solid fa-chevron-left"></i> Prev</button>
+                <button id="carNext">Next <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Detail View Container (Hidden initially) -->
+        <div class="detail-view-container" id="detailViewContainer">
+            <button class="close-detail" id="closeDetail"><i class="fa-solid fa-xmark"></i> Close</button>
+            <div class="detail-bg" id="detailBg"></div>
+            <div class="detail-content-wrapper">
+                <div class="detail-img-box" id="detailImgBox">
+                    <img src="" alt="Detail Image" id="detailImg">
+                </div>
+                <div class="detail-text-box">
+                    <h2 id="detailTitle">Title</h2>
+                    <h4 id="detailSubtitle">Category</h4>
+                    <p id="detailDesc">Description goes here.</p>
+                    <div class="detail-clips">
+                        <h5>Gallery</h5>
+                        <div class="clip-thumbnails">
+                            <div class="thumb placeholder"></div>
+                            <div class="thumb placeholder"></div>
+                            <div class="thumb placeholder"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Essentials Section -->
+    <section class="shop-essentials">
+        <div class="circle-down">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        
+        <div class="section-title" data-aos="fade-up">
+            <h2>SHOP SCHOOL ESSENTIALS</h2>
+            <div class="tab-links">
+                <a href="#" class="active">LABELS</a>
+                <a href="#">BACKTO SCHOOL LABEL SET</a>
+                <a href="#">BAG TAGS</a>
+                <a href="#">WATER BOTTLE</a>
+                <a href="#">LUNCH BOX</a>
+            </div>
+        </div>
+
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Minecraft Labels">
+                </div>
+                <div class="product-info">
+                    <h3>SCHOOL BOOK LABELS - MINECRAFT</h3>
+                    <p class="price">RS. 350.00</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (5.0)
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rainbow Labels">
+                </div>
+                <div class="product-info">
+                    <h3>SCHOOL BOOK LABELS - RAINBOWS</h3>
+                    <p class="price">RS. 350.00</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (4.0)
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Unicorn Labels">
+                </div>
+                <div class="product-info">
+                    <h3>SCHOOL BOOK LABELS - RAINBOW UNICORN</h3>
+                    <p class="price">RS. 350.00</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (4.0)
+                    </div>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1610486718520-2187b4f535bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Football Labels">
+                </div>
+                <div class="product-info">
+                    <h3>SCHOOL BOOK LABELS - FOOTBALL</h3>
+                    <p class="price">RS. 350.00</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> (4.0)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="shop-now-container">
+            <button class="btn-shop-now">SHOP NOW</button>
+        </div>
+    </section>
+
+    <!-- Dynamic Products Showcase -->
+    <section class="dynamic-products">
+        <div class="section-title" data-aos="fade-up">
+            <h2>OUR BESTSELLERS</h2>
+            <p style="margin-top: 10px; color: #666;">Explore our premium range of personalized products</p>
+        </div>
+        
+        <div class="marquee-products">
+            <div class="marquee-content">
+                <div class="product-pill">Gift tags</div>
+                <div class="product-pill">Envelopes</div>
+                <div class="product-pill">Iron on labels</div>
+                <div class="product-pill">3d embossed stickers</div>
+                <div class="product-pill">Waterproof labels</div>
+                <div class="product-pill">Bag tags</div>
+                <div class="product-pill">3d gift tags</div>
+                <div class="product-pill">Table mats</div>
+                <div class="product-pill">Sipper bottles</div>
+            </div>
+            <!-- Duplicate for infinite scroll effect -->
+            <div class="marquee-content">
+                <div class="product-pill">Gift tags</div>
+                <div class="product-pill">Envelopes</div>
+                <div class="product-pill">Iron on labels</div>
+                <div class="product-pill">3d embossed stickers</div>
+                <div class="product-pill">Waterproof labels</div>
+                <div class="product-pill">Bag tags</div>
+                <div class="product-pill">3d gift tags</div>
+                <div class="product-pill">Table mats</div>
+                <div class="product-pill">Sipper bottles</div>
+            </div>
+        </div>
+
+        <div class="bestsellers-grid">
+             <div class="bestseller-card" data-aos="zoom-in" data-aos-delay="100">
+                 <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=400&q=80" alt="Gift Tags">
+                 <div class="card-overlay-text">GIFT TAGS</div>
+             </div>
+             <div class="bestseller-card" data-aos="zoom-in" data-aos-delay="200">
+                 <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=400&q=80" alt="Envelopes">
+                 <div class="card-overlay-text">ENVELOPES</div>
+             </div>
+             <div class="bestseller-card" data-aos="zoom-in" data-aos-delay="300">
+                 <img src="https://images.unsplash.com/photo-1627885061803-b0e6df2980fa?auto=format&fit=crop&w=400&q=80" alt="Sipper Bottles">
+                 <div class="card-overlay-text">SIPPER BOTTLES</div>
+             </div>
+             <div class="bestseller-card" data-aos="zoom-in" data-aos-delay="400">
+                 <img src="https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?auto=format&fit=crop&w=400&q=80" alt="Table Mats">
+                 <div class="card-overlay-text">TABLE MATS</div>
+             </div>
+        </div>
+    </section>
+
+    <!-- Elegant Animated Footer -->
+    <footer class="elegant-footer">
+        <div class="footer-logo-circle" data-aos="fade-down" data-aos-duration="1500">
+            <div class="circle-text">
+                <h2>TDF.</h2>
+            </div>
+        </div>
+
+        <div class="footer-content-box">
+            <!-- Top Row -->
+            <div class="footer-top-row" data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000">
+                <a href="#">ABOUT US</a>
+                <span class="divider">|</span>
+                <a href="#">EVENTS</a>
+                <span class="divider">|</span>
+                <a href="#">CONSULTATIONS</a>
+                <span class="divider">|</span>
+                <a href="#">OUR JOY FAMILY</a>
+                <span class="divider">|</span>
+                <a href="#">FAQ</a>
+            </div>
+
+            <!-- Middle Row -->
+            <div class="footer-mid-row">
+                <div class="mid-col" data-aos="slide-up" data-aos-delay="300" data-aos-duration="800">
+                    <h4>CONTACT</h4>
+                    <p>+91 70679 53096</p>
+                    <p>radhikavibgyor@gmail.com</p>
+                    <p>Mumbai, India</p>
+                </div>
+                <div class="mid-col border-sides" data-aos="slide-up" data-aos-delay="400" data-aos-duration="800">
+                    <h4>HOURS</h4>
+                    <p><strong>*by appointment only</strong></p>
+                    <p>Mon - Fri | 11AM - 5PM</p>
+                    <p>Sat | 11AM - 7PM</p>
+                    <p>CLOSED SUNDAY</p>
+                </div>
+                <div class="mid-col" data-aos="slide-up" data-aos-delay="500" data-aos-duration="800">
+                    <h4>INFORMATION</h4>
+                    <p><a href="#">Contact Us</a></p>
+                    <p><a href="#">Browse Collections</a></p>
+                    <p><a href="#">Terms & Conditions</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="footer-bot-row" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+                <div class="bot-left">
+                    <span class="cursive-text">Let's connect</span>
+                    <div class="social-icons-elegant">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="bot-right">
+                    <span class="newsletter-label">STAY IN THE KNOW WITH THE DESIGN FACTORY:</span>
+                    <form class="newsletter-form-inline">
+                        <input type="email" placeholder="">
+                        <button type="submit"><i class="fa-regular fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-copyright" data-aos="fade-in" data-aos-delay="800">
+            <p>&copy; 2026 THE DESIGN FACTORY. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917067953096" class="floating-whatsapp" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Whatsapp us
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

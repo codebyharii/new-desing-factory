@@ -1184,11 +1184,6 @@ ul {
     display: block; /* changed from inline-block to stack */
 }
 
-.pw-subtitle, .pw-title, .pw-image-box, .pw-details-box > * {
-    /* Initial states for GSAP */
-    opacity: 0;
-}
-
 .pw-subtitle {
     font-size: 0.9rem;
     font-weight: 600;

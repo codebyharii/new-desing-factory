@@ -666,10 +666,10 @@ ul {
 
 .detail-bg {
     position: absolute;
-    bottom: 0;
-    left: 5%;
-    width: 90%;
-    height: 80%; /* Takes up bottom 80% leaving header visible */
+    top: 12.5%;
+    left: 10%;
+    width: 80%;
+    height: 75%;
     border-radius: 40px;
     z-index: 1;
 }
@@ -694,10 +694,10 @@ ul {
 
 .detail-content-wrapper {
     position: absolute;
-    bottom: 0;
-    left: 5%;
-    width: 90%;
-    height: 80%;
+    top: 12.5%;
+    left: 10%;
+    width: 80%;
+    height: 75%;
     z-index: 2;
     display: flex;
     align-items: center;
@@ -711,11 +711,11 @@ ul {
 
 .detail-img-box img {
     position: absolute;
-    bottom: 0;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     width: 80%;
-    height: 120%; /* Breaks out of the top */
+    height: 90%;
     object-fit: cover;
     border-radius: 30px;
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));

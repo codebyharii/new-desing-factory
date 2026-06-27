@@ -422,11 +422,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tl = gsap.timeline();
                 
                 tl.to(detailBg, {
-                    width: '90%',
-                    height: '80%',
-                    top: 'auto',
-                    bottom: '0',
-                    left: '5%',
+                    width: '80%',
+                    height: '75%',
+                    top: '12.5%',
+                    bottom: 'auto',
+                    left: '10%',
                     position: 'absolute',
                     duration: 0.8,
                     ease: "power3.inOut"
@@ -434,11 +434,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 tl.to(detailImg, {
                     width: '80%',
-                    height: '120%',
-                    top: 'auto',
-                    bottom: '0',
+                    height: '90%',
+                    top: '50%',
+                    bottom: 'auto',
                     left: '50%',
                     x: '-50%',
+                    y: '-50%',
                     position: 'absolute',
                     borderRadius: '30px',
                     duration: 0.8,
@@ -495,6 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 left: imgRect.left,
                 bottom: 'auto',
                 x: 0,
+                y: 0,
                 position: 'fixed',
                 borderRadius: '20px',
                 duration: 0.6,

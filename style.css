@@ -434,7 +434,7 @@ ul {
 
 .shop-essentials-header {
     text-align: center;
-    margin-bottom: 80px; /* Space for popping images */
+    margin-bottom: 140px; /* Increased space for popping images */
 }
 
 .essentials-title {
@@ -477,7 +477,7 @@ ul {
 
 .shop-essentials-footer {
     text-align: center;
-    margin-top: 40px;
+    /* Margin removed because it is now horizontally centered in carousel-footer flexbox */
 }
 
 .shop-now-btn {

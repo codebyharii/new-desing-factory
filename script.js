@@ -107,84 +107,109 @@ document.addEventListener('DOMContentLoaded', () => {
         isAnimating = true;
 
         const nextIndex = (currentIndex + direction + products.length) % products.length;
-        const currentData = products[currentIndex];
         const nextData = products[nextIndex];
-        const previewNextIndex = (nextIndex + 1) % products.length; // Image for the *new* preview
+        const previewNextIndex = (nextIndex + 1) % products.length;
+
+        // Get the current DOM elements for the images
+        const currentActiveImg = activeImgContainer.querySelector('img');
+        const currentPreviewImg = previewContainer.querySelector('img');
 
         const tl = gsap.timeline({
             onComplete: () => {
+                if (currentActiveImg) currentActiveImg.remove();
                 currentIndex = nextIndex;
                 isAnimating = false;
             }
         });
 
-        // 1. Text Exit Animations (Slide up & fade out)
+        // 1. Text Exit Animations (Slide out window)
         tl.to([heroTitle, heroDesc, centerQuote, priceCurrent, priceOld], {
-            y: -30,
+            y: "-100%",
             opacity: 0,
             duration: 0.4,
             stagger: 0.05,
             ease: "power2.in"
         }, 0);
 
-        // 2. Active Image Exit (Scale down & move left)
-        tl.to(activeImgContainer, {
-            scale: 0.8,
-            x: -200,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power3.inOut"
-        }, 0);
+        // 2. Active Image Exit (Shrink, move down-right, fade out)
+        if (currentActiveImg) {
+            tl.to(currentActiveImg, {
+                scale: 0.5,
+                x: 150,
+                y: 100,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.inOut"
+            }, 0);
+        }
 
         // 3. Background Color Morph
         tl.to(heroBgColor, {
             backgroundColor: nextData.color,
             duration: 0.8,
-            ease: "power2.inOut"
-        }, 0.2);
+            ease: "power3.inOut"
+        }, 0);
 
-        // --- MIDPOINT: Swap Data ---
+        // 4. FLIP Animation: Preview -> Active
+        if (currentPreviewImg) {
+            // Record state
+            const state = Flip.getState(currentPreviewImg);
+            
+            // Move to new parent and update class
+            activeImgContainer.appendChild(currentPreviewImg);
+            currentPreviewImg.className = 'active-product-img';
+            currentPreviewImg.id = 'activeImg'; // keep id consistent
+            
+            // Let FLIP handle the movement
+            tl.add(Flip.from(state, {
+                duration: 0.8,
+                ease: "power3.inOut",
+                absolute: true,
+                props: "borderRadius",
+                zIndex: 10
+            }), 0);
+        }
+
+        // 5. Prepare New Preview Image
+        const newPreviewImg = document.createElement('img');
+        newPreviewImg.src = products[previewNextIndex].img;
+        newPreviewImg.className = 'preview-img';
+        newPreviewImg.id = 'previewImg';
+        newPreviewImg.alt = "Preview";
+        previewContainer.appendChild(newPreviewImg);
+        
+        // Set initial state for new preview (hidden, pushed down and scaled down)
+        gsap.set(newPreviewImg, { y: 50, opacity: 0, scale: 0.8 });
+
+        // Midpoint Text Swap
         tl.call(() => {
-            // Update Text Content
             heroTitle.innerHTML = nextData.title;
             heroDesc.innerHTML = nextData.desc;
             centerQuote.innerHTML = nextData.quote;
             priceCurrent.innerHTML = nextData.priceCurrent;
             priceOld.innerHTML = nextData.priceOld;
             
-            // The old preview becomes the active image
-            activeImg.src = nextData.img;
-            
-            // Set up new preview image invisibly
-            previewImg.src = products[previewNextIndex].img;
-            
-            // Reset text positions for entrance
-            gsap.set([heroTitle, heroDesc, centerQuote, priceCurrent, priceOld], { y: 30 });
-        }, null, 0.5);
+            // Reset text positions for entrance (bottom window)
+            gsap.set([heroTitle, heroDesc, centerQuote, priceCurrent, priceOld], { y: "100%" });
+        }, null, 0.4);
 
-        // 4. Next Image Entrance (Preview to Center)
-        // Since we swapped the src, we just animate the container back in from a scaled down state
-        tl.fromTo(activeImgContainer, 
-            { scale: 0.5, x: 300, opacity: 0 },
-            { scale: 1, x: 0, opacity: 1, duration: 0.8, ease: "elastic.out(1, 0.7)" }, 
-            0.5
-        );
-
-        // 5. New Preview Entrance
-        tl.fromTo(previewContainer,
-            { scale: 0.5, opacity: 0, y: 50 },
-            { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-            0.6
-        );
-
-        // 6. Text Entrance Animations (Slide up from bottom & fade in)
+        // 6. Text Entrance Animations
         tl.to([heroTitle, heroDesc, centerQuote, priceCurrent, priceOld], {
-            y: 0,
+            y: "0%",
             opacity: 1,
             duration: 0.5,
             stagger: 0.05,
             ease: "power2.out"
-        }, 0.6);
+        }, 0.4);
+
+        // 7. New Preview Entrance
+        tl.to(newPreviewImg, {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: "power3.out"
+        }, 0.5);
     }
 
     let autoplayInterval;

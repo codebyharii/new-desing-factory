@@ -317,13 +317,13 @@ ul {
     width: 100%;
     max-width: 600px;
     height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
 }
 
 .active-product-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -411,9 +411,13 @@ ul {
 }
 
 .preview-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 15px;
 }
 
 /* ===== Vision Board Carousel Section ===== */

@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.style.top = '0';
                 header.style.background = 'rgba(0,0,0,0.8)';
             } else {
-                header.style.position = 'absolute';
-                header.style.top = '75px';
+                header.style.position = 'fixed';
+                header.style.top = '0';
                 header.style.background = 'transparent';
             }
         }
@@ -477,4 +477,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 0.2);
         });
     }
+
+    /* =======================================
+       BENTO BOX ABOUT SECTION ANIMATION
+       ======================================= */
+    gsap.from(".bento-box", {
+        scrollTrigger: {
+            trigger: ".about-bento-section",
+            start: "top 75%"
+        },
+        y: 80,
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "back.out(1.2)"
+    });
 });

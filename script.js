@@ -422,11 +422,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tl = gsap.timeline();
                 
                 tl.to(detailBg, {
-                    width: '80%',
-                    height: '75%',
-                    top: '12.5%',
+                    width: '70%',
+                    height: '65%',
+                    top: '20%',
                     bottom: 'auto',
-                    left: '10%',
+                    left: '15%',
                     position: 'absolute',
                     duration: 0.8,
                     ease: "power3.inOut"

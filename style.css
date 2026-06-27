@@ -666,18 +666,18 @@ ul {
 
 .detail-bg {
     position: absolute;
-    top: 12.5%;
-    left: 10%;
-    width: 80%;
-    height: 75%;
+    top: 20%;
+    left: 15%;
+    width: 70%;
+    height: 65%;
     border-radius: 40px;
     z-index: 1;
 }
 
 .close-detail {
     position: absolute;
-    top: 30px;
-    right: 5%;
+    top: 12%;
+    right: 15%;
     background: transparent;
     border: none;
     font-size: 1.1rem;
@@ -694,10 +694,10 @@ ul {
 
 .detail-content-wrapper {
     position: absolute;
-    top: 12.5%;
-    left: 10%;
-    width: 80%;
-    height: 75%;
+    top: 20%;
+    left: 15%;
+    width: 70%;
+    height: 65%;
     z-index: 2;
     display: flex;
     align-items: center;

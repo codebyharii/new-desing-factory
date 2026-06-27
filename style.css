@@ -1179,6 +1179,17 @@ ul {
     margin-bottom: 50px;
 }
 
+.pw-mask {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pw-subtitle, .pw-title, .pw-image-box, .pw-details-box > * {
+    /* Initial states for GSAP */
+    visibility: hidden;
+}
+
 .pw-subtitle {
     font-size: 0.9rem;
     font-weight: 600;

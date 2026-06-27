@@ -506,6 +506,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* =======================================
+       PRODUCT OF THE WEEK ANIMATION
+       ======================================= */
+    const pwTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".product-week-section",
+            start: "top 75%", // Starts when the top of the section is 75% down the viewport
+            toggleActions: "play none none none"
+        }
+    });
+
+    // 1. Text Mask Reveal (Slide up)
+    pwTimeline.fromTo([".pw-subtitle", ".pw-title"], 
+        { y: "100%", visibility: "visible" },
+        { y: "0%", duration: 0.8, stagger: 0.1, ease: "power4.out" }
+    )
+    // 2. Image Clip-Path & Parallax Scale
+    .fromTo(".pw-image-box",
+        { clipPath: "inset(100% 0% 0% 0%)", visibility: "visible" },
+        { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
+        "-=0.4" // Overlap slightly with text reveal
+    )
+    .fromTo(".pw-main-img",
+        { scale: 1.4 },
+        { scale: 1, duration: 1.8, ease: "power2.out" },
+        "-=1.2" // Start scaling as clip-path opens
+    )
+    // 3. Elastic Details Stagger
+    .fromTo(".pw-details-box > *",
+        { x: 50, opacity: 0, visibility: "visible" },
+        { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "back.out(1.4)" },
+        "-=1.0" // Start while image is still animating
+    );
+
+    /* =======================================
        BENTO BOX ABOUT SECTION ANIMATION
        ======================================= */
     gsap.from(".bento-box", {

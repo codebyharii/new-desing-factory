@@ -886,34 +886,30 @@ ul {
     overflow: hidden;
 }
 
-.marquee-products {
+.tdf-style-title {
+    text-align: left;
+    margin-bottom: 50px;
+    padding: 0 5%;
     display: flex;
-    overflow: hidden;
-    margin: 40px 0;
-    background-color: var(--yellow);
-    padding: 15px 0;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.marquee-content {
-    display: flex;
-    animation: scrollMarquee 20s linear infinite;
+.tdf-large {
+    font-family: 'Kalam', cursive;
+    font-size: 5rem;
+    line-height: 1;
+    color: #111;
+    font-weight: 700;
 }
 
-.product-pill {
-    padding: 8px 25px;
-    background-color: white;
-    color: var(--dark);
-    border-radius: 30px;
-    margin: 0 15px;
+.tdf-small {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    color: #111;
     font-weight: 600;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-@keyframes scrollMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    margin-top: -10px;
 }
 
 .bestsellers-grid {

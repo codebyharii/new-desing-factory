@@ -243,6 +243,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =======================================
+       NAVBAR ACTIVE CLASS LOGIC
+       ======================================= */
+    const navLinks = document.querySelectorAll('.nav-links-pill a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Remove active class from all links
+            navLinks.forEach(nav => nav.classList.remove('active-pill'));
+            // Add active class to the clicked link
+            this.classList.add('active-pill');
+        });
+    });
+
+    /* =======================================
        VISION BOARD CAROUSEL LOGIC
        ======================================= */
     const carouselTrack = document.getElementById('carouselTrack');

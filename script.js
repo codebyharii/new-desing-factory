@@ -529,7 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
     )
     .fromTo(".pw-main-img",
         { scale: 1.4 },
-        { scale: 1, duration: 1.8, ease: "power2.out" },
+        { scale: 1, duration: 1.8, stagger: 0.2, ease: "power2.out" },
         "-=1.2" // Start scaling as clip-path opens
     )
     // 3. Elastic Details Stagger

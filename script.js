@@ -518,23 +518,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Text Mask Reveal (Slide up)
     pwTimeline.fromTo([".pw-subtitle", ".pw-title"], 
-        { y: "100%", visibility: "visible" },
-        { y: "0%", duration: 0.8, stagger: 0.1, ease: "power4.out" }
+        { y: "100%", opacity: 0 },
+        { y: "0%", opacity: 1, duration: 0.8, stagger: 0.1, ease: "power4.out" }
     )
     // 2. Image Clip-Path & Parallax Scale
     .fromTo(".pw-image-box",
-        { clipPath: "inset(100% 0% 0% 0%)", visibility: "visible" },
-        { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "power3.inOut" },
+        { clipPath: "inset(100% 0% 0% 0%)", opacity: 0 },
+        { clipPath: "inset(0% 0% 0% 0%)", opacity: 1, duration: 1.2, ease: "power3.inOut" },
         "-=0.4" // Overlap slightly with text reveal
     )
     .fromTo(".pw-main-img",
         { scale: 1.4 },
-        { scale: 1, duration: 1.8, stagger: 0.2, ease: "power2.out" },
+        { scale: 1, duration: 1.8, ease: "power2.out" },
         "-=1.2" // Start scaling as clip-path opens
     )
     // 3. Elastic Details Stagger
     .fromTo(".pw-details-box > *",
-        { x: 50, opacity: 0, visibility: "visible" },
+        { x: 50, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "back.out(1.4)" },
         "-=1.0" // Start while image is still animating
     );

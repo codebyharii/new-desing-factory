@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sticky Header Logic
     const header = document.querySelector('.header-glass');
     
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
         if (header) {
-            if (window.scrollY > 150) {
+            if (window.scrollY > 50) {
                 header.style.position = 'fixed';
                 header.style.top = '0';
                 header.style.background = 'rgba(0,0,0,0.8)';
@@ -26,7 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.style.background = 'transparent';
             }
         }
-    });
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    // Initialize header state immediately on load
+    handleScroll();
 
     // Mock Countdown Timer (Target: 11th Aug)
     const updateCountdown = () => {

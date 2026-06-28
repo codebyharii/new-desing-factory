@@ -286,6 +286,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =======================================
+       MOBILE MENU LOGIC
+       ======================================= */
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-link');
+
+    if (mobileMenuBtn && closeMobileMenu && mobileNavOverlay) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            mobileNavOverlay.classList.add('active');
+        });
+
+        closeMobileMenu.addEventListener('click', (e) => {
+            e.preventDefault();
+            mobileNavOverlay.classList.remove('active');
+        });
+
+        // Close menu when a link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavOverlay.classList.remove('active');
+            });
+        });
+    }
+
+    /* =======================================
        VISION BOARD CAROUSEL LOGIC
        ======================================= */
     const carouselTrack = document.getElementById('carouselTrack');
@@ -295,13 +322,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (carouselTrack && carNextBtn && carPrevBtn) {
         let currentCarIndex = 0;
         const cards = document.querySelectorAll('.carousel-card');
-        const cardWidth = 360; // 320px width + 40px gap
+
+        // Function to dynamically calculate the width of a card + its gap
+        const getCardWidth = () => {
+            if (cards.length === 0) return 360;
+            const gap = window.innerWidth <= 992 ? 20 : 40;
+            return cards[0].offsetWidth + gap;
+        };
 
         carNextBtn.addEventListener('click', () => {
             if (currentCarIndex < cards.length - 1) { 
                 currentCarIndex++;
                 gsap.to(carouselTrack, {
-                    x: -(currentCarIndex * cardWidth),
+                    x: -(currentCarIndex * getCardWidth()),
                     duration: 0.8,
                     ease: "power3.inOut"
                 });
@@ -312,13 +345,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentCarIndex > 0) {
                 currentCarIndex--;
                 gsap.to(carouselTrack, {
-                    x: -(currentCarIndex * cardWidth),
+                    x: -(currentCarIndex * getCardWidth()),
                     duration: 0.8,
                     ease: "power3.inOut"
                 });
             }
         });
         
+        // Recalculate on window resize to snap to correct position
+        window.addEventListener('resize', () => {
+            gsap.set(carouselTrack, { x: -(currentCarIndex * getCardWidth()) });
+        });
+
         // Initial intro animation for the carousel
         gsap.from(".vision-carousel-section", {
             scrollTrigger: {

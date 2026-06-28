@@ -39,8 +39,21 @@
             <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
             <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
             <a href="#"><i class="fa-regular fa-heart"></i></a>
+            <a href="#" class="mobile-menu-btn" id="mobileMenuBtn"><i class="fa-solid fa-bars"></i></a>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <button class="close-mobile-menu" id="closeMobileMenu"><i class="fa-solid fa-xmark"></i></button>
+        <div class="mobile-nav-links">
+            <a href="#awwwardsHero" class="mobile-nav-item mobile-link">PUFFER JACKET</a>
+            <a href="#carouselSection" class="mobile-nav-item mobile-link">ALL PRODUCTS</a>
+            <a href="#aboutSection" class="mobile-nav-item mobile-link">ABOUT US</a>
+            <a href="#contactSection" class="mobile-nav-item mobile-link">CONTACT</a>
+        </div>
+    </div>
+
 
     <!-- Awwwards Hero Section -->
     <section class="awwwards-hero" id="awwwardsHero">
@@ -120,7 +133,7 @@
             </h2>
             <ul class="essentials-tabs">
                 <li class="active">LABELS</li>
-                <li>BACKTO SCHOOL LABEL SET</li>
+                <li>BACK TO SCHOOL LABEL SET</li>
                 <li>BAG TAGS</li>
                 <li>WATER BOTTLE</li>
                 <li>LUNCH BOX</li>
@@ -525,60 +538,61 @@
     </section>
 
     <!-- About Us Bento Section -->
-    <section class="about-bento-section">
-        <div class="bento-grid">
-            <!-- Box 1: Hero (Span 2 cols) -->
-            <div class="bento-box bento-hero bg-pastel-yellow">
-                <h2>ABOUT US</h2>
-                <h3>THOUGHTFULLY DESIGNED. BEAUTIFULLY PERSONALISED.</h3>
-            </div>
-
-            <!-- Box 2: Story (Span 2 rows) -->
-            <div class="bento-box bento-story bg-pastel-pink">
-                <p class="bento-highlight">Welcome to The Design Factory — a place where thoughtful design meets
-                    meaningful gifting.</p>
-                <p class="bento-date">Founded in 2019</p>
-                <p>The Design Factory began with a simple dream: to create beautifully personalised products that bring
-                    joy to everyday moments and life's biggest celebrations. What started as a passion for creativity
-                    has grown into a trusted destination for premium personalised gifts, stationery, school essentials,
-                    drinkware, organisers, and keepsakes loved by families across India.</p>
-            </div>
-
-            <!-- Box 3: Mascot / Inspiration -->
-            <div class="bento-box bento-mascot bg-pastel-blue">
-                <h4>OUR INSPIRATION</h4>
-                <div class="mascot-content">
-                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=300&q=80"
-                        alt="Cappuccino the dog">
-                    <p>Behind every design is our biggest inspiration — <strong>Cappuccino</strong>, our beloved
-                        four-legged mascot. His playful spirit, unconditional love, and joyful personality remind us to
-                        create products that bring happiness to others, one order at a time.</p>
+    <section class="about-bento-section" id="aboutSection">
+        <div class="about-grid-new">
+            <!-- Box 1: Top Left -->
+            <div class="about-box box-tl bg-gradient-orange" data-aos="fade-right">
+                <div class="box-content">
+                    <h2 class="about-box-title text-white">ABOUT US</h2>
+                    <h3 class="about-box-subtitle text-white">THOUGHTFULLY DESIGNED.<br>BEAUTIFULLY PERSONALISED.</h3>
+                    <p class="about-box-text text-white-opacity font-medium">Welcome to The Design Factory — a place where thoughtful design meets meaningful gifting.</p>
+                    <p class="about-box-text text-white-opacity">The Design Factory began with a simple dream: to create beautifully personalised products that bring joy to everyday moments and life's biggest celebrations. What started as a passion for creativity has grown into a trusted destination for premium personalised gifts, stationery, school essentials, drinkware, organisers, and keepsakes loved by families across India.</p>
+                    <div class="box-links">
+                        <span class="box-link">Founded in 2019</span>
+                        <span class="box-link">Trusted Destination</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Box 4: Why Choose Us -->
-            <div class="bento-box bento-why bg-pastel-gray">
-                <h4>WHY CHOOSE US?</h4>
-                <ul>
-                    <li><i class="fa-solid fa-circle-check"></i> Premium quality products</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Thoughtfully curated designs</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Beautiful personalisation</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Perfect for every age and occasion</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Trusted by thousands across India</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Made with love and attention to every detail</li>
-                </ul>
+            <!-- Box 2: Top Right -->
+            <div class="about-box box-tr bg-white shadow-soft" data-aos="fade-left">
+                <div class="box-content">
+                    <h3 class="about-box-title text-orange">WHY CHOOSE US?</h3>
+                    <p class="about-box-text text-gray">Premium quality, thoughtfully curated, and beautifully personalized products for every occasion.</p>
+                    <div class="inner-visual-box">
+                        <ul class="why-list-new">
+                            <li><i class="fa-solid fa-circle-check"></i> Premium quality products</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Thoughtfully curated designs</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Beautiful personalisation</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Perfect for every age and occasion</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Trusted by thousands across India</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Made with love and attention to every detail</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <!-- Box 5: Promise (Span full width) -->
-            <div class="bento-box bento-promise bg-pastel-dark">
-                <div class="promise-content">
-                    <h4>OUR PROMISE</h4>
-                    <p>Every product we create is designed with attention to detail, premium quality, and a personal
-                        touch. Whether it's a child's first day at school, a birthday celebration, a thoughtful return
-                        gift, or a corporate event, we believe every occasion deserves something unique.</p>
-                    <p><strong>Every order is crafted with care, packed with love, and made to celebrate life's little
-                            moments. From your family to ours, thank you for making us a part of your special
-                            memories.</strong></p>
+            <!-- Box 3: Bottom Left -->
+            <div class="about-box box-bl bg-white shadow-soft" data-aos="fade-up">
+                <div class="box-content">
+                    <h3 class="about-box-title text-orange">OUR PROMISE <i class="fa-solid fa-handshake"></i></h3>
+                    <p class="about-box-text text-gray">Every product we create is designed with attention to detail, premium quality, and a personal touch. Whether it's a child's first day at school, a birthday celebration, a thoughtful return gift, or a corporate event, we believe every occasion deserves something unique.</p>
+                    <p class="about-box-text text-gray font-bold">Every order is crafted with care, packed with love, and made to celebrate life's little moments. From your family to ours, thank you for making us a part of your special memories.</p>
+                    <button class="about-btn-orange">SHOP NOW</button>
+                </div>
+            </div>
+
+            <!-- Box 4: Bottom Right -->
+            <div class="about-box box-br bg-white shadow-soft" data-aos="fade-up" data-aos-delay="100">
+                <div class="box-content br-content">
+                    <div class="br-text">
+                        <h3 class="about-box-title text-orange">OUR INSPIRATION</h3>
+                        <p class="about-box-text text-gray">Behind every design is our biggest inspiration — <strong>Cappuccino</strong>, our beloved four-legged mascot. His playful spirit, unconditional love, and joyful personality remind us to create products that bring happiness to others, one order at a time.</p>
+                        <button class="about-btn-orange">MEET CAPPUCCINO</button>
+                    </div>
+                    <div class="br-image">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=300&q=80" alt="Cappuccino the dog">
+                    </div>
                 </div>
             </div>
         </div>

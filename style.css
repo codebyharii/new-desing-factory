@@ -671,10 +671,10 @@ ul {
 
 .detail-bg {
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 15%;
     width: 70%;
-    height: 65%;
+    height: 45%;
     border-radius: 40px;
     z-index: 1;
 }
@@ -1092,10 +1092,20 @@ ul {
     color: #111;
     text-transform: uppercase;
     transition: var(--transition);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 12px 25px;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .curated-card:hover .curated-overlay {
-    color: #e84393;
+    color: white;
+    background: #e84393;
+    border-color: #e84393;
+    box-shadow: 0 8px 25px rgba(232, 67, 147, 0.3);
 }
 
 /* ===== Dynamic Products Section ===== */
@@ -2252,5 +2262,77 @@ ul {
     }
     .countdown-timer {
         display: none;
+    }
+}
+
+/* ===== Inspiration Hero Section ===== */
+.inspiration-hero-section {
+    background-color: #f3ece4;
+    padding: 0 0 80px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.inspiration-image-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.inspiration-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* Optional: blend mode to make it seamlessly integrate with the background if the image has a slightly different background color */
+    mix-blend-mode: multiply;
+}
+
+.inspiration-text-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-family: var(--font-main);
+    color: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.insp-subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    color: #444;
+    text-transform: uppercase;
+}
+
+.insp-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+.insp-footer-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .insp-title {
+        font-size: 1.8rem;
+    }
+    .insp-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+    .insp-footer-text {
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
     }
 }

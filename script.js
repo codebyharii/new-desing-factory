@@ -470,8 +470,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 tl.to(detailBg, {
                     width: '70%',
-                    height: '65%',
-                    top: '20%',
+                    height: '45%',
+                    top: '30%',
                     bottom: 'auto',
                     left: '15%',
                     position: 'absolute',

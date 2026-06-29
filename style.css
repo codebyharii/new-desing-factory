@@ -3346,3 +3346,30 @@ ul {
         letter-spacing: 1.5px;
     }
 }
+
+
+/* ===== Brand Logo Styles ===== */
+.brand-logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-brand-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto 20px auto;
+    display: block;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+@media (max-width: 768px) {
+    .brand-logo {
+        height: 35px;
+    }
+    .footer-brand-logo {
+        height: 60px;
+    }
+}

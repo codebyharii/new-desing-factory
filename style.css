@@ -3350,7 +3350,7 @@ ul {
 
 /* ===== Brand Logo Styles ===== */
 .brand-logo {
-    height: 45px;
+    height: 30px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -3367,7 +3367,7 @@ ul {
 
 @media (max-width: 768px) {
     .brand-logo {
-        height: 35px;
+        height: 24px;
     }
     .footer-brand-logo {
         height: 60px;

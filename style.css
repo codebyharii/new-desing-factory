@@ -2205,6 +2205,7 @@ ul {
 
     /* ===== Detail View Mobile Layout ===== */
     .detail-content-wrapper {
+        position: fixed !important;
         flex-direction: column !important;
         top: 50% !important;
         left: 50% !important;

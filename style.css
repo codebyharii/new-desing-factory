@@ -657,7 +657,7 @@ ul {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 100;
+    z-index: 9999;
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
@@ -2206,8 +2206,9 @@ ul {
     /* ===== Detail View Mobile Layout ===== */
     .detail-content-wrapper {
         flex-direction: column !important;
-        top: 17.5% !important;
-        left: 7.5% !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
         width: 85% !important;
         height: 65% !important;
     }

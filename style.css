@@ -3350,7 +3350,7 @@ ul {
 
 /* ===== Brand Logo Styles ===== */
 .brand-logo {
-    height: 30px;
+    height: 20px; /* Slimmer for laptop */
     width: auto;
     object-fit: contain;
     display: block;
@@ -3367,7 +3367,7 @@ ul {
 
 @media (max-width: 768px) {
     .brand-logo {
-        height: 24px;
+        height: 18px; /* Slimmer for mobile */
     }
     .footer-brand-logo {
         height: 60px;

@@ -2217,10 +2217,15 @@ ul {
     }
 
     .detail-img-box {
-        flex: 0.3;
+        height: 35% !important;
+        flex: none !important;
         width: 100%;
-        margin-top: 10px;
+        margin-top: 15px;
         box-sizing: border-box !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
     }
     
     .detail-img-box img {
@@ -2237,15 +2242,17 @@ ul {
     }
 
     .detail-text-box {
-        flex: 0.7;
+        height: 65% !important;
+        flex: none !important;
         width: 100% !important;
-        padding: 0 10px !important;
+        padding: 5px 15px !important;
         text-align: center;
         overflow-y: auto;
         box-sizing: border-box !important;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: flex-start;
     }
 
     .detail-text-box h2 {
@@ -2285,7 +2292,7 @@ ul {
         padding: 8px 16px;
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        z-index: 2000;
+        z-index: 999999 !important;
         font-size: 0.9rem;
         cursor: pointer;
     }

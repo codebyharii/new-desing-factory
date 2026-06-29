@@ -485,77 +485,102 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cardRect = activeCard.getBoundingClientRect();
                 const imgRect = activeCardImg.getBoundingClientRect();
                 
-                // Hide actual detail bg and img initially
-                gsap.set(detailBg, { 
-                    width: cardRect.width, 
-                    height: cardRect.height, 
-                    top: cardRect.top, 
-                    left: cardRect.left, 
-                    position: 'fixed',
-                    borderRadius: '40px'
-                });
-                
-                gsap.set(detailImg, {
-                    width: imgRect.width,
-                    height: imgRect.height,
-                    top: imgRect.top,
-                    left: imgRect.left,
-                    position: 'fixed',
-                    x: 0,
-                    transform: 'none',
-                    borderRadius: '20px'
-                });
-                
-                gsap.set(detailTextBox, { opacity: 0, x: 50 });
-                gsap.set(closeDetail, { opacity: 0 });
-
-                // Animate to full size
-                const tl = gsap.timeline();
-                
                 const isMobile = window.innerWidth <= 992;
                 
-                tl.to(detailBg, {
-                    width: isMobile ? '85%' : '70%',
-                    height: isMobile ? '65%' : '45%',
-                    top: isMobile ? '17.5%' : '30%',
-                    bottom: 'auto',
-                    left: isMobile ? '7.5%' : '15%',
-                    position: 'absolute',
-                    duration: 0.8,
-                    ease: "power3.inOut"
-                }, 0);
+                if (isMobile) {
+                    // Mobile: Simple Fade + Scale Animation
+                    // Set final properties instantly, then animate opacity and scale for buttery smoothness
+                    gsap.set(detailBg, { 
+                        width: '85%', height: '65%', top: '17.5%', left: '7.5%', 
+                        position: 'fixed', borderRadius: '40px', opacity: 0, scale: 0.95 
+                    });
+                    
+                    // Let CSS handle the positioning of the image inside flexbox, just animate opacity/scale
+                    gsap.set(detailImg, {
+                        opacity: 0, scale: 0.95, position: 'relative', top: '0', left: '0', transform: 'none', borderRadius: '20px'
+                    });
+                    
+                    gsap.set(detailTextBox, { opacity: 0, y: 20 });
+                    gsap.set(closeDetail, { opacity: 0 });
 
-                tl.to(detailImg, {
-                    width: isMobile ? '90%' : '80%',
-                    height: isMobile ? '100%' : '90%',
-                    top: '50%',
-                    bottom: 'auto',
-                    left: '50%',
-                    x: '-50%',
-                    y: '-50%',
-                    position: 'absolute',
-                    borderRadius: '30px',
-                    duration: 0.8,
-                    ease: "power3.inOut"
-                }, 0);
+                    const tl = gsap.timeline();
+                    
+                    tl.to(detailBg, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" }, 0);
+                    tl.to(detailImg, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" }, 0.1);
+                    tl.to(detailTextBox, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.2);
+                    tl.to(closeDetail, { opacity: 1, duration: 0.3 }, 0.4);
+                } else {
+                    // Desktop: Complex FLIP-like Expanding Animation
+                    gsap.set(detailBg, { 
+                        width: cardRect.width, 
+                        height: cardRect.height, 
+                        top: cardRect.top, 
+                        left: cardRect.left, 
+                        position: 'fixed',
+                        borderRadius: '40px'
+                    });
+                    
+                    gsap.set(detailImg, {
+                        width: imgRect.width,
+                        height: imgRect.height,
+                        top: imgRect.top,
+                        left: imgRect.left,
+                        position: 'fixed',
+                        x: 0,
+                        transform: 'none',
+                        borderRadius: '20px'
+                    });
+                    
+                    gsap.set(detailTextBox, { opacity: 0, x: 50 });
+                    gsap.set(closeDetail, { opacity: 0 });
 
-                tl.to(detailTextBox, {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.5,
-                    ease: "power2.out"
-                }, 0.5);
+                    // Animate to full size
+                    const tl = gsap.timeline();
+                    
+                    tl.to(detailBg, {
+                        width: '70%',
+                        height: '45%',
+                        top: '30%',
+                        bottom: 'auto',
+                        left: '15%',
+                        position: 'absolute',
+                        duration: 0.8,
+                        ease: "power3.inOut"
+                    }, 0);
 
-                tl.to(closeDetail, {
-                    opacity: 1,
-                    duration: 0.3
-                }, 0.6);
+                    tl.to(detailImg, {
+                        width: '80%',
+                        height: '90%',
+                        top: '50%',
+                        bottom: 'auto',
+                        left: '50%',
+                        x: '-50%',
+                        y: '-50%',
+                        position: 'absolute',
+                        borderRadius: '30px',
+                        duration: 0.8,
+                        ease: "power3.inOut"
+                    }, 0);
+
+                    tl.to(detailTextBox, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    }, 0.5);
+
+                    tl.to(closeDetail, {
+                        opacity: 1,
+                        duration: 0.3
+                    }, 0.6);
+                }
             });
         });
 
         closeDetail.addEventListener('click', () => {
             if (!activeCard) return;
 
+            const isMobile = window.innerWidth <= 992;
             const cardRect = activeCard.getBoundingClientRect();
             const imgRect = activeCardImg.getBoundingClientRect();
 
@@ -565,36 +590,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     carouselWrapper.style.visibility = 'visible';
                     carouselFooter.style.visibility = 'visible';
                     gsap.to([carouselWrapper, carouselFooter], { opacity: 1, duration: 0.3 });
+                    
+                    // Reset inline styles that might mess up future clicks
+                    gsap.set([detailBg, detailImg], { clearProps: 'all' });
                 }
             });
 
             tl.to(closeDetail, { opacity: 0, duration: 0.2 }, 0);
-            tl.to(detailTextBox, { opacity: 0, x: 50, duration: 0.3 }, 0);
+            
+            if (isMobile) {
+                // Mobile: Fade out smoothly
+                tl.to(detailTextBox, { opacity: 0, y: 20, duration: 0.3 }, 0);
+                tl.to(detailImg, { opacity: 0, scale: 0.95, duration: 0.3, ease: "power2.in" }, 0.1);
+                tl.to(detailBg, { opacity: 0, scale: 0.95, duration: 0.3, ease: "power2.in" }, 0.2);
+            } else {
+                // Desktop: Fake FLIP shrink
+                tl.to(detailTextBox, { opacity: 0, x: 50, duration: 0.3 }, 0);
 
-            tl.to(detailBg, {
-                width: cardRect.width,
-                height: cardRect.height,
-                top: cardRect.top,
-                left: cardRect.left,
-                bottom: 'auto',
-                position: 'fixed',
-                duration: 0.6,
-                ease: "power3.inOut"
-            }, 0.2);
+                tl.to(detailBg, {
+                    width: cardRect.width,
+                    height: cardRect.height,
+                    top: cardRect.top,
+                    left: cardRect.left,
+                    bottom: 'auto',
+                    position: 'fixed',
+                    duration: 0.6,
+                    ease: "power3.inOut"
+                }, 0.2);
 
-            tl.to(detailImg, {
-                width: imgRect.width,
-                height: imgRect.height,
-                top: imgRect.top,
-                left: imgRect.left,
-                bottom: 'auto',
-                x: 0,
-                y: 0,
-                position: 'fixed',
-                borderRadius: '20px',
-                duration: 0.6,
-                ease: "power3.inOut"
-            }, 0.2);
+                tl.to(detailImg, {
+                    width: imgRect.width,
+                    height: imgRect.height,
+                    top: imgRect.top,
+                    left: imgRect.left,
+                    bottom: 'auto',
+                    x: 0,
+                    y: 0,
+                    position: 'fixed',
+                    borderRadius: '20px',
+                    duration: 0.6,
+                    ease: "power3.inOut"
+                }, 0.2);
+            }
         });
     }
 

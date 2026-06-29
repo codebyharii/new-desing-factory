@@ -600,7 +600,84 @@
         </div>
     </section>
 
-    <!-- Inspiration Hero Section -->
+    <style>
+.inspiration-hero-section {
+    background-color: #f3ece4 !important;
+    padding: 0 0 60px 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+.inspiration-image-container {
+    width: 100% !important;
+    margin-bottom: 30px !important;
+}
+.inspiration-image-container img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+}
+.inspiration-text-container {
+    max-width: 1000px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    background-color: transparent !important;
+}
+.insp-subtitle {
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 4px !important;
+    margin-bottom: 20px !important;
+    color: #555 !important;
+    text-transform: uppercase !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+.insp-title {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 25px !important;
+    color: #1a1a1a !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+.insp-footer-text {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    color: #444 !important;
+    text-transform: uppercase !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+/* Laptop Optimization */
+@media (min-width: 769px) {
+    .inspiration-image-container {
+        margin-bottom: 50px !important;
+    }
+    .inspiration-image-container img {
+        max-height: 500px !important;
+    }
+    .insp-subtitle { font-size: 1.1rem !important; letter-spacing: 6px !important; margin-bottom: 25px !important; }
+    .insp-title { font-size: 3rem !important; letter-spacing: 3px !important; margin-bottom: 35px !important; }
+    .insp-footer-text { font-size: 1.1rem !important; letter-spacing: 3px !important; }
+}
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .insp-title { font-size: 2rem !important; letter-spacing: 1px !important; margin-bottom: 20px !important; }
+    .inspiration-hero-section { padding-bottom: 40px !important; }
+}
+</style>
+<!-- Inspiration Hero Section -->
     <section class="inspiration-hero-section" data-aos="fade-up">
         <div class="inspiration-image-container">
             <img src="WhatsApp Image 2026-06-28 at 2.57.01 PM.jpeg" alt="Cappuccino - Our Inspiration">

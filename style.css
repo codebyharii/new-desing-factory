@@ -2210,21 +2210,21 @@ ul {
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 85% !important;
+        width: 80% !important;
         height: 65% !important;
         align-items: stretch !important;
         box-sizing: border-box !important;
     }
 
     .detail-img-box {
-        flex: 0.35;
+        flex: 0.3;
         width: 100%;
-        margin-top: 15px;
+        margin-top: 10px;
         box-sizing: border-box !important;
     }
     
     .detail-img-box img {
-        width: 90% !important;
+        width: 85% !important;
         height: 100% !important;
         border-radius: 20px !important;
         position: relative !important;
@@ -2237,9 +2237,9 @@ ul {
     }
 
     .detail-text-box {
-        flex: 0.65;
+        flex: 0.7;
         width: 100% !important;
-        padding: 5px 15px !important;
+        padding: 0 10px !important;
         text-align: center;
         overflow-y: auto;
         box-sizing: border-box !important;
@@ -2249,29 +2249,31 @@ ul {
     }
 
     .detail-text-box h2 {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         margin-top: 5px;
+        margin-bottom: 5px;
         width: 100%;
     }
 
     .detail-text-box h4 {
-        font-size: 0.9rem;
-        margin-bottom: 10px;
+        font-size: 0.8rem;
+        margin-bottom: 8px;
         width: 100%;
     }
 
     .detail-text-box p {
-        font-size: 0.8rem;
-        margin-bottom: 15px;
-        line-height: 1.3;
+        font-size: 0.75rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
         width: 100%;
     }
     
     .detail-text-box .shop-now-btn {
-        padding: 12px 30px !important;
-        font-size: 0.9rem !important;
-        width: 80% !important;
-        max-width: 250px;
+        padding: 10px 20px !important;
+        font-size: 0.85rem !important;
+        width: 70% !important;
+        max-width: 200px;
+        margin-top: 10px !important;
     }
 
     .close-detail {
@@ -2297,7 +2299,11 @@ ul {
         justify-content: center;
         width: 100%;
         display: flex;
-        gap: 10px;
+        gap: 8px;
+    }
+    .clip-thumbnails .thumb {
+        width: 50px;
+        height: 35px;
     }
 
     /* Disable hover zooming on other cards */

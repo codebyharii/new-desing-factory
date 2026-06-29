@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Mobile: Simple Fade + Scale Animation
                     // Set final properties instantly, then animate opacity and scale for buttery smoothness
                     gsap.set(detailBg, { 
-                        width: '85%', height: '65%', top: '50%', left: '50%', 
+                        width: '80%', height: '65%', top: '50%', left: '50%', 
                         xPercent: -50, yPercent: -50,
                         position: 'fixed', borderRadius: '40px', opacity: 0, scale: 0.95 
                     });

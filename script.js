@@ -515,11 +515,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isMobile = window.innerWidth <= 992;
                 
                 tl.to(detailBg, {
-                    width: isMobile ? '90%' : '70%',
-                    height: isMobile ? '70%' : '45%',
-                    top: isMobile ? '15%' : '30%',
+                    width: isMobile ? '85%' : '70%',
+                    height: isMobile ? '65%' : '45%',
+                    top: isMobile ? '17.5%' : '30%',
                     bottom: 'auto',
-                    left: isMobile ? '5%' : '15%',
+                    left: isMobile ? '7.5%' : '15%',
                     position: 'absolute',
                     duration: 0.8,
                     ease: "power3.inOut"
@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 tl.to(detailImg, {
                     width: isMobile ? '90%' : '80%',
-                    height: isMobile ? '90%' : '90%',
+                    height: isMobile ? '100%' : '90%',
                     top: '50%',
                     bottom: 'auto',
                     left: '50%',

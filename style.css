@@ -652,11 +652,11 @@ ul {
 
 /* Detail View (Hidden Initially) */
 .detail-view-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     z-index: 100;
     pointer-events: none;
     opacity: 0;
@@ -2206,14 +2206,14 @@ ul {
     /* ===== Detail View Mobile Layout ===== */
     .detail-content-wrapper {
         flex-direction: column !important;
-        top: 15% !important;
-        left: 5% !important;
-        width: 90% !important;
-        height: 70% !important;
+        top: 17.5% !important;
+        left: 7.5% !important;
+        width: 85% !important;
+        height: 65% !important;
     }
 
     .detail-img-box {
-        flex: 0.4;
+        flex: 0.35;
         width: 100%;
         margin-top: 15px;
     }
@@ -2231,14 +2231,14 @@ ul {
     }
 
     .detail-text-box {
-        flex: 0.6;
+        flex: 0.65;
         padding: 5px 15px !important;
         text-align: center;
         overflow-y: auto;
     }
 
     .detail-text-box h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-top: 5px;
     }
 
@@ -2254,20 +2254,22 @@ ul {
     }
 
     .close-detail {
-        top: 9%;
-        right: 5%;
+        position: fixed !important;
+        top: 10% !important;
+        right: 5% !important;
         color: #111;
         background: rgba(255,255,255,0.9);
         padding: 8px 16px;
         border-radius: 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 2000;
         font-size: 0.9rem;
+        cursor: pointer;
     }
 
     .detail-clips h5 {
         margin-bottom: 5px;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .clip-thumbnails {

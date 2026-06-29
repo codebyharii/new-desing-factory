@@ -361,6 +361,50 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.set(carouselTrack, { x: -(currentCarIndex * getCardWidth()) });
         });
 
+        // Touch swipe support
+        let startX = 0;
+        let isSwiping = false;
+
+        carouselTrack.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isSwiping = true;
+        }, { passive: true });
+
+        carouselTrack.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            const currentX = e.touches[0].clientX;
+            const diffX = startX - currentX;
+
+            if (Math.abs(diffX) > 50) { 
+                if (diffX > 0) {
+                    // Swipe left -> Next
+                    if (currentCarIndex < cards.length - 1) { 
+                        currentCarIndex++;
+                        gsap.to(carouselTrack, {
+                            x: -(currentCarIndex * getCardWidth()),
+                            duration: 0.8,
+                            ease: "power3.inOut"
+                        });
+                    }
+                } else {
+                    // Swipe right -> Prev
+                    if (currentCarIndex > 0) {
+                        currentCarIndex--;
+                        gsap.to(carouselTrack, {
+                            x: -(currentCarIndex * getCardWidth()),
+                            duration: 0.8,
+                            ease: "power3.inOut"
+                        });
+                    }
+                }
+                isSwiping = false; 
+            }
+        }, { passive: true });
+
+        carouselTrack.addEventListener('touchend', () => {
+            isSwiping = false;
+        });
+
         // Initial intro animation for the carousel
         gsap.from(".vision-carousel-section", {
             scrollTrigger: {
@@ -468,20 +512,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Animate to full size
                 const tl = gsap.timeline();
                 
+                const isMobile = window.innerWidth <= 992;
+                
                 tl.to(detailBg, {
-                    width: '70%',
-                    height: '45%',
-                    top: '30%',
+                    width: isMobile ? '90%' : '70%',
+                    height: isMobile ? '70%' : '45%',
+                    top: isMobile ? '15%' : '30%',
                     bottom: 'auto',
-                    left: '15%',
+                    left: isMobile ? '5%' : '15%',
                     position: 'absolute',
                     duration: 0.8,
                     ease: "power3.inOut"
                 }, 0);
 
                 tl.to(detailImg, {
-                    width: '80%',
-                    height: '90%',
+                    width: isMobile ? '90%' : '80%',
+                    height: isMobile ? '90%' : '90%',
                     top: '50%',
                     bottom: 'auto',
                     left: '50%',
